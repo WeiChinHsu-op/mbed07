@@ -35,7 +35,7 @@ logdir = "logs/scalars/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
 
 def reshape_function(data, label):
-  reshaped_data = tf.reshape(data, [-1, 4, 1])
+  reshaped_data = tf.reshape(data, [-1, 3, 1])
   return reshaped_data, label
 
 
