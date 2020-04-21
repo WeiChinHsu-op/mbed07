@@ -35,7 +35,7 @@ logdir = "logs/scalars/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
 
 def reshape_function(data, label):
-  reshaped_data = tf.reshape(data, [-1, 3, 1])
+  reshaped_data = tf.reshape(data, [-1, 4, 1])
   return reshaped_data, label
 
 
@@ -59,15 +59,15 @@ def load_data(train_data_path, valid_data_path, test_data_path, seq_length):
 def build_net(seq_length):
   model = tf.keras.Sequential([
       tf.keras.layers.Conv2D(
-          8, (4, 3),
+          8, (4, 4),
           padding="same",
           activation="relu",
-          input_shape=(seq_length, 3, 1)),
-      tf.keras.layers.MaxPool2D((3, 3)),
+          input_shape=(seq_length, 4, 1)),
+      tf.keras.layers.MaxPool2D((4, 4)),
       tf.keras.layers.Dropout(0.1),
       tf.keras.layers.Conv2D(16, (4, 1), padding="same",
                              activation="relu"),
-      tf.keras.layers.MaxPool2D((3, 1), padding="same"),
+      tf.keras.layers.MaxPool2D((4, 1), padding="same"),
       tf.keras.layers.Dropout(0.1),
       tf.keras.layers.Flatten(),
       tf.keras.layers.Dense(16, activation="relu"),
