@@ -2,7 +2,7 @@
 #define CONFIG_H_
  
  // The number of labels (without negative)
-#define label_num 2
+#define label_num 3
   
 struct Config {
   
@@ -39,13 +39,20 @@ struct Config {
          "     *           \n\r"
          "     * * * * *   \n\r",
          "my_2:\n\r"
-         "  *              \n\r"
-         "     *           \n\r"
-         "        *        \n\r"
-         "           *     \n\r"
-         "              *  \n\r"
          "                *\n\r"
-         "                 \n\r"};
+         "              *  \n\r"
+         "           *     \n\r"
+         "        *        \n\r"
+         "     *           \n\r"
+         "  *              \n\r",
+         "negative:\n\r"
+         "                *\n\r"
+         "              *  \n\r"
+         "           *     \n\r"
+         "        *        \n\r"
+         "     *           \n\r"
+         "  *              \n\r",
+         };
 };
  
 Config config;
